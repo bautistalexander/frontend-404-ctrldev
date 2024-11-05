@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@fontsource creepster;
+
+
 body {
   background: #191a1e;
   color: #fff;
