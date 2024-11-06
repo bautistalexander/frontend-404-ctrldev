@@ -19,7 +19,7 @@ export default {
 
       },
       colors: {
-        color0: "white",
+        color0: "rgb(222, 204, 174)",
         color1: "red",
         color2: "green",
         color3: "blue",

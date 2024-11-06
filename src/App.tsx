@@ -7,6 +7,7 @@ import '@fontsource/creepster';
 import "@fontsource/special-elite"; 
 import "@fontsource/nosifer"; 
 import { CategoriasMenu } from './components/CategoriasMenu';
+import { ContainerCards } from './components/ContainerCards';
 
 function App() {
   const [color, setColor] = useState<number>(2);
@@ -16,6 +17,7 @@ function App() {
       <Navbar color={color} setColor={setColor} />
       <Hero color={color} setColor={setColor} />
       <CategoriasMenu color={color} />
+      <ContainerCards color={color} />
     </>
   )
 }
