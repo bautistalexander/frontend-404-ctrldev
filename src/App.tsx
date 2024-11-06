@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import '@fontsource/creepster';
 import "@fontsource/special-elite"; 
 import "@fontsource/nosifer"; 
+import { CategoriasMenu } from './components/CategoriasMenu';
 
 function App() {
   const [color, setColor] = useState<number>(2);
@@ -14,6 +15,7 @@ function App() {
     <>
       <Navbar color={color} setColor={setColor} />
       <Hero color={color} setColor={setColor} />
+      <CategoriasMenu color={color} />
     </>
   )
 }

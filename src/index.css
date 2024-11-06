@@ -4,8 +4,13 @@
 
 @fontsource creepster;
 
+* {
+  box-sizing: border-box;
 
-body {
-  background: #191a1e;
-  color: #fff;
+}
+
+@layer base {
+  body {
+    @apply bg-colorBackground text-color0;
+  }
 }
