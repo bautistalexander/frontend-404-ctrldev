@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Navbar color={color} setColor={setColor} />
-      <Hero color={color} setColor={setColor} />
+      <Hero color={color} />
       <CategoriasMenu color={color} />
       <ContainerCards color={color} />
     </>

@@ -10,9 +10,9 @@ interface Color {
 export const Navbar: React.FC<Color> = ({ color, setColor }) => {
   const [showMenu, setShowMenu] = useState<number>(0);
   return (
-    <nav className="flex flex-col justify-center items-center flex-wrap gap-2 px-5 py-3 bg-black/30 md:flex-row md:justify-between">
+    <nav className={`fixed z-10 flex flex-col justify-center items-center flex-wrap gap-2 px-5 py-3 bg-black border-b-4 border-double shadow-colorShadowBottom md:flex-row md:justify-between w-full ${color === 1 ? "border-b-color1" : color === 2 ? "border-b-color2" : "border-b-color3"}`}>
       <a href="#" className="text-white m-2">
-        <h1 className={`text-6xl px-3 py-1 rounded-md cursor-pointer font-creepster ${color === 1 ? "hover:text-shadow-colorShadow1" : color === 2 ? "hover:text-shadow-colorShadow2" : "hover:text-shadow-colorShadow3"}`}>CtrlDev</h1>
+        <h1 className={`text-6xl px-3 py-1 rounded-md cursor-pointer font-creepster ${color === 1 ? "hover:text-shadow-colorShadow1" : color === 2 ? "hover:text-shadow-colorShadow2" : "hover:text-shadow-colorShadow3"}`}>Ctrl+Dev</h1>
       </a>
       <div className="flex w-full md:w-auto p-3 gap-6">
         <div
