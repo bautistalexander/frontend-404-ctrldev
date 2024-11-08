@@ -97,7 +97,7 @@ export const Card: React.FC<Color> = ({
                   : "hover:bg-color3"
                 }`}
 
-                onClick={() => setShowModalView(true)}
+              onClick={() => setShowModalView(true)}
             >
               <FaEye className="text-2xl bottom-8" />
             </div>
@@ -108,6 +108,7 @@ export const Card: React.FC<Color> = ({
                   ? "hover:bg-color2"
                   : "hover:bg-color3"
                 }`}
+                onClick={() => setShowModalForm(true)}
             >
               <FaEdit className="text-2xl bottom-8" />
             </div>
@@ -125,12 +126,14 @@ export const Card: React.FC<Color> = ({
         </div>
       </div>
 
+
+      {/* MODAL VEW */}
       {
         showModalView && (
           <div className="fixed inset-0 bg-colorBackground bg-opacity-60 backdrop-blur-sm flex flex-row justify-center items-center h-full z-20 font-special">
             <div className={`relative border-2 h-[600px] w-full md:w-1/2 p-5 m-5 rounded-lg flex-col ${color === 1 ? "shadow-colorBoxShadow1" : color === 2 ? "shadow-colorBoxShadow2" : "shadow-colorBoxShadow3"}`}>
               <div className="absolute flex justify-end items-center w-full h-10 p-5 top-0 left-0">
-                <IoClose className={`text-3xl cursor-pointer ${color === 1 ? "hover:text-color1" : color === 2 ? "hover:text-color2" : "hover:text-color3"}`} onClick={() => setShowModalView(false)}/>
+                <IoClose className={`text-3xl cursor-pointer ${color === 1 ? "hover:text-color1" : color === 2 ? "hover:text-color2" : "hover:text-color3"}`} onClick={() => setShowModalView(false)} />
               </div>
               {/* Contenido del Modal */}
               <div className="mt-8 h-[530px] overflow-auto">
@@ -183,8 +186,79 @@ export const Card: React.FC<Color> = ({
               </div>
             </div>
           </div>)
-
       }
+
+
+      {/* MODAL FORM */}
+      {
+        showModalForm && (
+          < div className="fixed inset-0 bg-colorBackground bg-opacity-60 backdrop-blur-sm flex flex-row justify-center items-center h-full z-20 font-special">
+            <div className={`relative border-2 h-[600px] w-full md:w-1/2 p-5 m-5 rounded-lg flex-col ${color === 1 ? "shadow-colorBoxShadow1" : color === 2 ? "shadow-colorBoxShadow2" : "shadow-colorBoxShadow3"}`}>
+              <div className="absolute flex justify-end items-center w-full h-10 p-5 top-0 left-0">
+                <IoClose className={`text-3xl cursor-pointer ${color === 1 ? "hover:text-color1" : color === 2 ? "hover:text-color2" : "hover:text-color3"}`} onClick={() => setShowModalForm(false)} />
+              </div>
+              {/* Contenido del Modal */}
+              <div className="mt-8 h-[530px] overflow-auto">
+                <h1 className={`text-4xl lg:text-5xl font-creepster text-center ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>
+                  Escribe tu Historia o leyenda
+                </h1>
+
+                <div className="flex flex-col md:flex-row h-64">
+                  <div className={`h-64 w-full md:w-1/2 border-2 border-color0 rounded-lg ${color === 1 ? "shadow-colorBoxShadow1" : color === 2 ? "shadow-colorBoxShadow2" : "shadow-colorBoxShadow3"}`}>
+                    <img src={prueba} alt="" className="object-cover rounded-lg h-full w-full" />
+                    <input type="file" name="" id="" />
+                  </div>
+                  <div className="md:h-52 w-full md:w-1/2 sm:p-2 flex flex-col justify-between">
+                    <div className="mt-1">
+                      <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Título:</span>
+                      <textarea id="titulo" name="titulo" className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${color === 1 ? "focus:ring-color1" : color === 2 ? "focus:ring-color2" : "focus:ring-color3"}`} placeholder="Escriba el título">
+                        {titulo}
+                      </textarea>
+                    </div>
+                    <div className="mt-1">
+                      <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Autor:</span>
+                      <textarea id="autor" name="autor" className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${color === 1 ? "focus:ring-color1" : color === 2 ? "focus:ring-color2" : "focus:ring-color3"}`} placeholder="Escriba el autor">
+                        {autor}
+                      </textarea>
+                    </div>
+                    <div className="mt-2">
+                      <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Región:</span>
+                      <textarea id="region" name="region" className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${color === 1 ? "focus:ring-color1" : color === 2 ? "focus:ring-color2" : "focus:ring-color3"}`} placeholder="Escriba la region">
+                        {region}
+                      </textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mr-2">
+                  <div className="mt-2">
+                    <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Categoria:</span>
+                    <p className="">
+                      categoria_id
+                    </p>
+                  </div>
+                  <div className="mt-2">
+                    <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Descripcion:</span>
+                    <textarea id="titulo" name="titulo" className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${color === 1 ? "focus:ring-color1" : color === 2 ? "focus:ring-color2" : "focus:ring-color3"}`} placeholder="Escriba el título">
+                      {descripcion}
+                    </textarea>
+                  </div>
+                  <div className="mt-2">
+                    <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Contenido:</span>
+                    <textarea id="titulo" name="titulo" className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${color === 1 ? "focus:ring-color1" : color === 2 ? "focus:ring-color2" : "focus:ring-color3"}`} placeholder="Escriba el título">
+                      {contenido}
+                    </textarea>
+
+                  </div>
+                  <button className={`rounded-lg w-full h-8 border-2 font-extrabold text-xl opacity-80 hover:opacity-100 ${color === 1 ? "border-color1 bg-color1" : color === 2 ? "border-color2 bg-color2" : "border-color3 bg-color3"}`}>GUARGAR CAMBIOS</button>
+                </div>
+              </div>
+            </div>
+          </div >
+        )
+      }
+
+
     </>
   );
 };

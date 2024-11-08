@@ -4,9 +4,8 @@ import { Card } from "./Card";
 import img_tapiz1 from "../images/tapiz1.png";
 import axios from "axios";
 
-import prueba from "../images/prueba.jpg";
-import imagen from "../images/paisaje4.png";
-import img_telarana3 from "../images/telarana3.png";
+// import prueba from "../images/prueba.jpg";
+// import { IoClose } from "react-icons/io5";
 
 interface Color {
   color: number;
@@ -24,14 +23,17 @@ interface Texto {
 
 export const ContainerCards: React.FC<Color> = ({ color }) => {
   const [data, setData] = useState<Texto[]>([]);
-
+  // const [showModalView, setShowModalView] = useState<boolean>(false);
+  // const [showModalForm, setShowModalForm] = useState<boolean>(false);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/textos");
+        const response = await axios.get("http://192.168.1.14:8000/textos");
         setData(response.data);
-      } catch (error) { }
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getData();
@@ -63,10 +65,7 @@ export const ContainerCards: React.FC<Color> = ({ color }) => {
         ))}
       </div>
 
-
       
-      {/* Modal */}
-
 
     </>
   );
