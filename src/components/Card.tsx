@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FaEye } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 import prueba from "../images/prueba.jpg";
-import imagen from "../images/paisaje4.png";
+import imagen11 from "../images/paisaje4.png";
 import img_telarana3 from "../images/telarana3.png";
 
 interface Color {
@@ -31,99 +32,159 @@ export const Card: React.FC<Color> = ({
   imagen,
 }) => {
 
-  console.log("bautista")
+  const [showModalView, setShowModalView] = useState<boolean>(false);
+  const [showModalForm, setShowModalForm] = useState<boolean>(false);
 
   return (
-    <div className="group rounded-2xl bg-colorBackground opacity-80 h-[430px]">
-      <div
-        className={`flex flex-col justify-between border-2 rounded-2xl overflow-hidden shadow-colorBoxShadow4 h-full ${
-          color === 1
+    <>
+      <div className="group rounded-2xl bg-colorBackground opacity-80 h-[430px]">
+        <div
+          className={`flex flex-col justify-between border-2 rounded-2xl overflow-hidden shadow-colorBoxShadow4 h-full ${color === 1
             ? "group-hover:shadow-colorBoxShadow1 group-hover:border-color1"
             : color === 2
-            ? "group-hover:shadow-colorBoxShadow2 group-hover:border-color2"
-            : "group-hover:shadow-colorBoxShadow3 group-hover:border-color3"
-        }`}
-      >
-        <div className="relative -z-10">
-          <div className="absolute w-full h-full opacity-40 group-hover:opacity-60">
-            <img
-              src={img_telarana3}
-              alt=""
-              className="object-cover invert group-hover:animate-wiggle group-hover:animate-infinite"
-            />
+              ? "group-hover:shadow-colorBoxShadow2 group-hover:border-color2"
+              : "group-hover:shadow-colorBoxShadow3 group-hover:border-color3"
+            }`}
+        >
+          <div className="relative -z-10">
+            <div className="absolute w-full h-full opacity-40 group-hover:opacity-60">
+              <img
+                src={img_telarana3}
+                alt=""
+                className="object-cover invert group-hover:animate-wiggle group-hover:animate-infinite"
+              />
+            </div>
+            <img src={imagen} alt="" className="object-cover" />
           </div>
-          <img src={prueba} alt="" className="object-cover" />
-        </div>
 
-        <div className="relative flex flex-col px-5 py-2 border-b-2 shadow-colorShadowBottom h-72">
-          <div className="absolute top-0 left-0 w-full h-full opacity-25 -z-10">
-            <img
-              src={imagen}
-              alt=""
-              className="object-contain sm:object-cover"
-            />
-          </div>
-          <h1
-            className={`text-3xl font-bold line-clamp-1 ${
-              color === 1
+          <div className="relative flex flex-col px-5 py-2 border-b-2 shadow-colorShadowBottom h-72">
+            <div className="absolute top-0 left-0 w-full h-full opacity-25 -z-10">
+              <img
+                src={imagen}
+                alt=""
+                className="object-contain sm:object-cover"
+              />
+            </div>
+            <h1
+              className={`text-3xl font-bold line-clamp-1 ${color === 1
                 ? "group-hover:text-shadow-colorShadow1"
                 : color === 2
-                ? "group-hover:text-shadow-colorShadow2"
-                : "group-hover:text-shadow-colorShadow3"
-            }`}
-          >
-            {titulo}
-          </h1>
-          <span className="text-center text-color0/60 italic text-sm line-clamp-1">
-            {`Autor: ${autor}`}
-          </span>
-          <p className="text-sm line-clamp-5">{descripcion}</p>
-        </div>
+                  ? "group-hover:text-shadow-colorShadow2"
+                  : "group-hover:text-shadow-colorShadow3"
+                }`}
+            >
+              {titulo}
+            </h1>
+            <span className="text-center text-color0/60 italic text-sm line-clamp-1">
+              {`Autor: ${autor}`}
+            </span>
+            <p className="text-sm line-clamp-5">{descripcion}</p>
+          </div>
 
-        <div
-          className={`flex h-14 ${
-            color === 1
+          <div
+            className={`flex h-14 ${color === 1
               ? "text-color1"
               : color === 2
-              ? "text-color2"
-              : "text-color3"
-          }`}
-        >
-          <div
-            className={`cursor-pointer w-1/3 flex justify-center  py-4 hover:text-color0 ${
-              color === 1
+                ? "text-color2"
+                : "text-color3"
+              }`}
+          >
+            <div
+              className={`cursor-pointer w-1/3 flex justify-center  py-4 hover:text-color0 ${color === 1
                 ? "hover:bg-color1"
                 : color === 2
-                ? "hover:bg-color2"
-                : "hover:bg-color3"
-            }`}
-          >
-            <FaEye className="text-2xl bottom-8" />
-          </div>
-          <div
-            className={`cursor-pointer w-1/3 flex justify-center  py-4 hover:text-color0 ${
-              color === 1
+                  ? "hover:bg-color2"
+                  : "hover:bg-color3"
+                }`}
+
+                onClick={() => setShowModalView(true)}
+            >
+              <FaEye className="text-2xl bottom-8" />
+            </div>
+            <div
+              className={`cursor-pointer w-1/3 flex justify-center  py-4 hover:text-color0 ${color === 1
                 ? "hover:bg-color1"
                 : color === 2
-                ? "hover:bg-color2"
-                : "hover:bg-color3"
-            }`}
-          >
-            <FaEdit className="text-2xl bottom-8" />
-          </div>
-          <div
-            className={`cursor-pointer w-1/3 flex justify-center  py-4 hover:text-color0 ${
-              color === 1
+                  ? "hover:bg-color2"
+                  : "hover:bg-color3"
+                }`}
+            >
+              <FaEdit className="text-2xl bottom-8" />
+            </div>
+            <div
+              className={`cursor-pointer w-1/3 flex justify-center  py-4 hover:text-color0 ${color === 1
                 ? "hover:bg-color1"
                 : color === 2
-                ? "hover:bg-color2"
-                : "hover:bg-color3"
-            }`}
-          >
-            <FaTrashAlt className="text-2xl bottom-8" />
+                  ? "hover:bg-color2"
+                  : "hover:bg-color3"
+                }`}
+            >
+              <FaTrashAlt className="text-2xl bottom-8" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {
+        showModalView && (
+          <div className="fixed inset-0 bg-colorBackground bg-opacity-60 backdrop-blur-sm flex flex-row justify-center items-center h-full z-20 font-special">
+            <div className={`relative border-2 h-[600px] w-full md:w-1/2 p-5 m-5 rounded-lg flex-col ${color === 1 ? "shadow-colorBoxShadow1" : color === 2 ? "shadow-colorBoxShadow2" : "shadow-colorBoxShadow3"}`}>
+              <div className="absolute flex justify-end items-center w-full h-10 p-5 top-0 left-0">
+                <IoClose className={`text-3xl cursor-pointer ${color === 1 ? "hover:text-color1" : color === 2 ? "hover:text-color2" : "hover:text-color3"}`} onClick={() => setShowModalView(false)}/>
+              </div>
+              {/* Contenido del Modal */}
+              <div className="mt-8 h-[530px] overflow-auto">
+                <h1 className={`text-4xl lg:text-5xl font-creepster text-center ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>
+                  {titulo}
+                </h1>
+
+                <div className="flex flex-col md:flex-row h-50">
+                  <div className={`h-52 w-full md:w-1/2 border-2 border-color0 rounded-lg ${color === 1 ? "shadow-colorBoxShadow1" : color === 2 ? "shadow-colorBoxShadow2" : "shadow-colorBoxShadow3"}`}>
+                    <img src={prueba} alt="" className="object-cover rounded-lg h-full w-full" />
+                  </div>
+                  <div className="md:h-52 w-full md:w-1/2 sm:p-2 flex flex-col justify-between">
+                    <div className="mt-1">
+                      <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Autor:</span>
+                      <p className="">
+                        {autor}
+                      </p>
+                    </div>
+                    <div className="mt-2">
+                      <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Categoria:</span>
+                      <p className="">
+                        {categoria_id}
+                      </p>
+                    </div>
+                    <div className="mt-2">
+                      <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Región:</span>
+                      <p className="">
+                        {region}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="mt-2">
+                    <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Descripcion:</span>
+                    <p className="">
+                      {descripcion}
+                    </p>
+                  </div>
+                  <div className="mt-2">
+                    <span className={`text-sm font-extrabold ${color === 1 ? "text-color1" : color === 2 ? "text-color2" : "text-color3"}`}>Contenido:</span>
+                    <p className="">
+                      {contenido}
+                    </p>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>)
+
+      }
+    </>
   );
 };
