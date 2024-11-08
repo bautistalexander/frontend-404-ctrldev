@@ -36,6 +36,7 @@ export default {
   plugins: [
     textShadowPlugin,
     require('tailwindcss-animated'),
+    require('@tailwindcss/line-clamp'),
   ],
 }
 
