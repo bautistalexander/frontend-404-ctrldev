@@ -7,17 +7,19 @@ import '@fontsource/creepster';
 import "@fontsource/special-elite"; 
 import "@fontsource/nosifer"; 
 import { CategoriasMenu } from './components/CategoriasMenu';
-import { ContainerCards } from './components/ContainerCards';
+import { Footer } from './components/Footer';
 
 function App() {
   const [color, setColor] = useState<number>(2);
 
+  const [refresh, setRefresh] = useState<number>(0);
+
   return (
     <>
       <Navbar color={color} setColor={setColor} />
-      <Hero color={color} />
-      <CategoriasMenu color={color} />
-      <ContainerCards color={color} />
+      <Hero color={color} refresh={refresh} setRefresh={setRefresh} />
+      <CategoriasMenu color={color} refresh={refresh} setRefresh={setRefresh} />
+      <Footer color={color} />
     </>
   )
 }

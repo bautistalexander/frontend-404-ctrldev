@@ -2,6 +2,9 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoIosColorPalette } from "react-icons/io";
 
+import img_tapiz3 from "../images/paisaje7.png";
+import img_tapiz4 from "../images/tormenta.gif";
+
 interface Color {
   color: number;
   setColor: React.Dispatch<React.SetStateAction<number>>;
@@ -11,7 +14,7 @@ export const Navbar: React.FC<Color> = ({ color, setColor }) => {
   const [showMenu, setShowMenu] = useState<number>(0);
   return (
     <nav
-      className={`fixed z-10 flex flex-row justify-between gap-2 px-5 py-3 bg-black border-b-4 border-double shadow-colorShadowBottom md:flex-row md:justify-between w-full ${
+      className={`fixed z-10 flex flex-row justify-between gap-2 px-5 py-3 bg-colorBackground border-b-4 border-double shadow-colorShadowBottom md:flex-row md:justify-between w-full ${
         color === 1
           ? "border-b-color1"
           : color === 2
@@ -19,9 +22,19 @@ export const Navbar: React.FC<Color> = ({ color, setColor }) => {
           : "border-b-color3"
       }`}
     >
+      <div className="absolute h-full w-full opacity-20 top-0 left-0 overflow-hidden -z-10 invert flex gap-0">
+        <img src={img_tapiz3} alt="" className="h-full w-full object-cover m-0 p-0 border-2" />
+      </div>
+      <div className="absolute h-full w-full opacity-10 top-0 left-0 overflow-hidden -z-10 group-hover:block">
+              <img
+                src={img_tapiz4}
+                alt=""
+                className="h-full w-full object-cover"
+              />
+            </div>
       <a href="#" className="text-white m-2">
         <h1
-          className={`text-6xl px-3 py-1 rounded-md cursor-pointer font-creepster ${
+          className={`text-6xl px-3 py-1 rounded-md cursor-pointer font-creepster hover:animate-wiggle-more animate-infinite animate-duration-[5000ms] ${
             color === 1
               ? "hover:text-shadow-colorShadow1"
               : color === 2

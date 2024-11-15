@@ -9,7 +9,8 @@ export default {
         colorBoxShadow2: 'inset 0px 0px 10px rgba(0, 255, 0, 0.8)', 
         colorBoxShadow3: 'inset 0px 0px 10px rgba(0, 0, 255, 0.8)', 
         colorBoxShadow4: 'inset 0px 0px 10px rgba(255, 255, 255, 0.8)',
-        colorShadowBottom: '0px 4px 8px rgba(255, 255, 255, 0.8)'
+        colorShadowBottom: '0px 4px 8px rgba(255, 255, 255, 0.8)',
+        colorShadowTop: '0px -4px 8px rgba(255, 255, 255, 0.8)'
       },
       textShadow: {  
         colorShadow0: '4px 4px 6px rgba(222, 204, 174, 0.7)',
