@@ -7,7 +7,6 @@ import img_terror from "../images/paisaje8.jpg";
 import img_tapiz2 from "../images/aro1.png";
 import img_tapiz3 from "../images/terror.gif";
 
-
 import { IoClose } from "react-icons/io5";
 
 import axios from "axios";
@@ -255,7 +254,15 @@ export const Hero: React.FC<Color> = ({ color, refresh, setRefresh }) => {
             </div>
 
             {/* Contenido del Modal */}
-            <div className="mt-8 h-[530px] overflow-auto flex flex-col gap-8">
+            <div
+              className={`mt-8 h-[530px] flex flex-col gap-8 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground ${
+                color === 1
+                  ? "scrollbar-thumb-color1"
+                  : color === 2
+                  ? "scrollbar-thumb-color2"
+                  : "scrollbar-thumb-color3"
+              }`}
+            >
               <h1
                 className={`text-4xl lg:text-5xl font-creepster text-center ${
                   color === 1
@@ -328,12 +335,12 @@ export const Hero: React.FC<Color> = ({ color, refresh, setRefresh }) => {
                       id="titulo"
                       name="titulo"
                       onChange={handleChangeTitulo}
-                      className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground scrollbar-thumb-rounded ${
                         color === 1
-                          ? "focus:ring-color1"
+                          ? "focus:ring-color1 scrollbar-thumb-color1"
                           : color === 2
-                          ? "focus:ring-color2"
-                          : "focus:ring-color3"
+                          ? "focus:ring-color2 scrollbar-thumb-color2"
+                          : "focus:ring-color3 scrollbar-thumb-color3"
                       }`}
                       placeholder="Escriba el título"
                       value={tituloE}
@@ -355,12 +362,12 @@ export const Hero: React.FC<Color> = ({ color, refresh, setRefresh }) => {
                       id="autor"
                       name="autor"
                       onChange={handleChangeAutor}
-                      className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground scrollbar-thumb-rounded ${
                         color === 1
-                          ? "focus:ring-color1"
+                          ? "focus:ring-color1 scrollbar-thumb-color1"
                           : color === 2
-                          ? "focus:ring-color2"
-                          : "focus:ring-color3"
+                          ? "focus:ring-color2 scrollbar-thumb-color2"
+                          : "focus:ring-color3 scrollbar-thumb-color3"
                       }`}
                       placeholder="Escriba el autor"
                       value={autorE}
@@ -382,12 +389,12 @@ export const Hero: React.FC<Color> = ({ color, refresh, setRefresh }) => {
                       id="region"
                       name="region"
                       onChange={handleChangeRegion}
-                      className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      className={`resize-none w-full h-10 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground scrollbar-thumb-rounded ${
                         color === 1
-                          ? "focus:ring-color1"
+                          ? "focus:ring-color1 scrollbar-thumb-color1"
                           : color === 2
-                          ? "focus:ring-color2"
-                          : "focus:ring-color3"
+                          ? "focus:ring-color2 scrollbar-thumb-color2"
+                          : "focus:ring-color3 scrollbar-thumb-color3"
                       }`}
                       placeholder="Escriba la region"
                       value={regionE}
@@ -440,12 +447,12 @@ export const Hero: React.FC<Color> = ({ color, refresh, setRefresh }) => {
                     id="titulo"
                     name="titulo"
                     onChange={handleChangeDescripcion}
-                    className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground scrollbar-thumb-rounded ${
                       color === 1
-                        ? "focus:ring-color1"
+                        ? "focus:ring-color1 scrollbar-thumb-color1"
                         : color === 2
-                        ? "focus:ring-color2"
-                        : "focus:ring-color3"
+                        ? "focus:ring-color2 scrollbar-thumb-color2"
+                        : "focus:ring-color3 scrollbar-thumb-color3"
                     }`}
                     placeholder="Escriba la descripción"
                     value={descripcionE}
@@ -467,12 +474,12 @@ export const Hero: React.FC<Color> = ({ color, refresh, setRefresh }) => {
                     id="titulo"
                     name="titulo"
                     onChange={handleChangeContenido}
-                    className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`resize-none w-full h-20 p-1 bg-transparent rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground scrollbar-thumb-rounded ${
                       color === 1
-                        ? "focus:ring-color1"
+                        ? "focus:ring-color1 scrollbar-thumb-color1"
                         : color === 2
-                        ? "focus:ring-color2"
-                        : "focus:ring-color3"
+                        ? "focus:ring-color2 scrollbar-thumb-color2"
+                        : "focus:ring-color3 scrollbar-thumb-color3"
                     }`}
                     placeholder="Escriba el contenido"
                     value={contenidoE}

@@ -205,7 +205,13 @@ export const CategoriasMenu: React.FC<Color> = ({ color, refresh, setRefresh }) 
             </div>
 
             {/* Contenido del Modal */}
-            <div className="mt-8 h-80 md:h-[400px] overflow-auto flex flex-col gap-3">
+            <div className={`mt-8 h-80 md:h-[400px] flex flex-col gap-3 overflow-y-scroll scrollbar-thin scrollbar-track-colorBackground ${
+                color === 1
+                  ? "scrollbar-thumb-color1"
+                  : color === 2
+                  ? "scrollbar-thumb-color2"
+                  : "scrollbar-thumb-color3"
+              }`}>
               <h1
                 className={`text-4xl lg:text-5xl font-creepster text-center ${
                   color === 1
